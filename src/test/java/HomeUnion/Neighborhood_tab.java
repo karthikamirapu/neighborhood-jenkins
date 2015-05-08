@@ -14,6 +14,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
 
@@ -35,15 +37,15 @@ public class Neighborhood_tab {
     @Before
     public void setUp() throws Exception {
 
-        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        //capabilities.setCapability("version", "37");
-        //capabilities.setCapability("platform", Platform.XP);
-        //capabilities.setCapability("name","kingkarthik");
-        //this.driver = new RemoteWebDriver(
-                //new URL("http://karthikamirapu:75ff59d4-4d26-429a-bb15-f10ccb6c7383@ondemand.saucelabs.com:80/wd/hub"),
-                //capabilities);
-       System.setProperty("webdriver.chrome.driver", "/Users/Karthik/Downloads/chromedriver");
-        this.driver = new ChromeDriver();
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("version", "37");
+        capabilities.setCapability("platform", Platform.XP);
+        capabilities.setCapability("name","ngbhd");
+        this.driver = new RemoteWebDriver(
+                new URL("http://karthikamirapu:75ff59d4-4d26-429a-bb15-f10ccb6c7383@ondemand.saucelabs.com:80/wd/hub"),
+                capabilities);
+        //System.setProperty("webdriver.chrome.driver", "/Users/Karthik/Downloads/chromedriver");
+        //this.driver = new ChromeDriver();
 
         Dimension d = new Dimension(1280,800);
         driver.manage().window().setSize(d);
